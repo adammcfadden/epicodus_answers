@@ -1,5 +1,9 @@
 <h2>Questions</h2>
 
+{{outlet}}
+
+{{#link-to 'new-question'}}<span class="btn btn-primary">Ask A Question</span>{{/link-to}}
+
 <ul>
 {{#each}}
 <li>{{question}} - {{author}}</li>
