@@ -1,4 +1,6 @@
 {{#if notEditing}}
+{{outlet}}
+
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3>Question: {{question}}</h3>
@@ -9,9 +11,26 @@
     <p>{{description}}</p>
   </div>
   <div class="panel-footer">
-    <button {{action 'edit'}} align='center' class="btn btn-primary">Edit this Question</button>
+    <span {{action 'edit'}} class="btn btn-primary">Edit this Question</span>
+    <span {{action 'delete'}} class="btn btn-danger">Delete this Question</span>
+    {{#link-to 'new-answer'}}<span class="btn btn-primary">Answer this Question</span>{{/link-to}}
   </div>
 </div>
+
+<h2>Answers:</h2>
+
+{{#each answer in model.answers}}
+{{#link-to 'answer' this.id}}<div class="panel panel-danger">
+  <div class="panel-heading">
+    <h4>Author: {{answer.author}}</h4>
+  </div>
+  <div class="panel-body">
+    <ul class="list-group">
+    <li class="list-group-item">{{answer.answer}}</li>
+    </ul>
+  </div>
+</div>{{/link-to}}
+{{/each}}
 
 
 {{else}}

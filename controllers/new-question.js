@@ -1,4 +1,4 @@
-App.NewQuestionController = Ember.Controller.extend({
+App.NewQuestionController = Ember.ObjectController.extend({
   actions: {
     save: function(){
     var newQuestion = this.store.createRecord('question',{
