@@ -1,0 +1,29 @@
+{{#if notEditing}}
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3>Question: {{question}}</h3>
+    <h4>Author: {{author}}</h4>
+  </div>
+  <div class="panel-body">
+    <h4>Description:</h4>
+    <p>{{description}}</p>
+  </div>
+  <div class="panel-footer">
+    <button {{action 'edit'}} align='center' class="btn btn-primary">Edit this Question</button>
+  </div>
+</div>
+
+
+{{else}}
+
+<div class="form-group">
+  <form>
+    {{input valueBinding="question" class="form-control" id="question" placeholder="Enter your question"}}<br>
+    {{input valueBinding="author" class="form-control" id="author" placeholder="Enter your name"}}<br>
+    {{textarea valueBinding="description" class="form-control" rows="5" id="description" placeholder="Enter some more information"}}<br>
+
+    <button class="btn btn-primary" {{action 'save'}}>Submit Question</button>
+  </form>
+</div>
+
+{{/if}}
