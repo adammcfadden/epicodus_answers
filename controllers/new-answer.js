@@ -13,6 +13,10 @@ App.NewAnswerController = Ember.ObjectController.extend({
     question.save();
 
     this.transitionToRoute('question', question.id)
+
+
+    this.set('answer', null)
+    this.set('authorName', null)
     }
   }
 });

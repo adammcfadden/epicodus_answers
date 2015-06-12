@@ -20,18 +20,34 @@
 <h2>Answers:</h2>
 
 {{#each answer in model.answers}}
-{{#link-to 'answer' this.id}}<div class="panel panel-danger">
+<div {{action 'showAnswer' answer}} class="panel panel-danger">
   <div class="panel-heading">
-    <h4>Author: {{answer.author}}</h4>
+    <h4>{{answer.author}}</h4>
   </div>
   <div class="panel-body">
     <ul class="list-group">
     <li class="list-group-item">{{answer.answer}}</li>
     </ul>
   </div>
-</div>{{/link-to}}
+</div>
 {{/each}}
 
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{currentAnswer.author}}</h4>
+      </div>
+      <div class="modal-body">
+        <p>{{currentAnswer.answer}}</p>
+      </div>
+      <div class="modal-footer">
+        <span {{action 'deleteAnswer' currentAnswer}} class="btn btn-danger">Delete this Answer</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 {{else}}
 
